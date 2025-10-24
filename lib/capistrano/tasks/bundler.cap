@@ -22,7 +22,7 @@ namespace :bundler do
           configuration[:without] = fetch(:bundle_without)
 
           configuration.each do |key, value|
-            execute :bundle, "config", "--local", key, value.to_s.shellescape unless value.nil?
+            execute :bundle, "config", "set", "--local", key, value.to_s.shellescape unless value.nil?
           end
         end
       end
